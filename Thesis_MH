@@ -1,0 +1,2430 @@
+Code for examination of data for MRes Sumemr Project by Matthew Hanson CID:02178329
+
+#Set working directory#
+setwd("C:/Users/han77102/OneDrive - Mott MacDonald/Professional Development/Masters Degree/Projects/Guy Woodward - Salmonids/Data")
+
+#Fix Rlang issue to Load data in#
+packageVersion("rlang")
+install.packages("rlang")
+library(rlang)
+install.packages("https://cran.r-project.org/src/contrib/Archive/rlang/rlang_1.0.2.tar.gz", repos = NULL, type="source")
+
+#load in data#
+
+library(readr)
+Trutta_Database <- read_csv("Trutta_Database.csv")
+View(Trutta_Database)
+
+##Food Web Plots##
+
+#Install.packages
+install.packages("cheddar")
+
+#Load cheddar
+library(cheddar)
+
+#Import food web data using LoadCommunity() function
+example<-LoadCommunity()
+("../data/Example") #example is a folder containing the three .csv files 
+
+#Plot log10-transformed sum biomass abundance for each level
+PlotBPyramid(example) #Can change labels etc, explore using ?PlotBPyramid()
+
+#ENGLAND#
+
+###Plotting Frome data###
+
+#Load River Frome data
+Frome<-LoadCommunity("Frome_KLD")
+#file path takes you to the folder containing the three Frome .csv files
+
+#View Frome biomass pyramid
+PlotBPyramid(Frome)
+
+#Plot node properties
+PlotNPS(Frome,'Log10M','Log10N',highlight.nodes="SALMO TRUTTA",xlab=Log10MLabel(Frome),ylab=Log10NLabel(Frome))
+
+#Determine Regression
+Frome_Model<-LinearRegressionByClass(Frome, 'Log10M', 'Log10N')
+summary(Frome_Model$all)
+abline(Frome_Model$all)
+NumberOfNodes(Frome)
+
+###Plotting Afon Berwyn data###
+
+#Load River Afon_Berwyn data
+Afon_Berwyn<-LoadCommunity("Afon_Berwyn_DP")
+#file path takes you to the folder containing the three Afon_Berwyn .csv files
+
+#View Afon_Berwyn biomass pyramid
+PlotBPyramid(Afon_Berwyn)
+
+#Plot node properties
+PlotNPS(Afon_Berwyn,'Log10M','Log10N',highlight.nodes="Salmo salar",xlab=Log10MLabel(Afon_Berwyn),ylab=Log10NLabel(Afon_Berwyn))
+
+#Determine Regression
+Afon_Berwyn_Model<-LinearRegressionByClass(Afon_Berwyn, 'Log10M', 'Log10N')
+summary(Afon_Berwyn_Model$all)
+abline(Afon_Berwyn_Model$all)
+
+###Plotting Afon Bidno data###
+
+#Load River Afon_Bidno data
+Afon_Bidno<-LoadCommunity("Afon_Bidno_DP")
+#file path takes you to the folder containing the three Afon_Bidno .csv files
+
+#View Afon_Bidno biomass pyramid
+PlotBPyramid(Afon_Bidno)
+
+#Plot node properties
+PlotNPS(Afon_Bidno,'Log10M','Log10N',highlight.nodes="Salmo salar",xlab=Log10MLabel(Afon_Bidno),ylab=Log10NLabel(Afon_Bidno))
+
+#Determine Regression
+Afon_Bidno_Model<-LinearRegressionByClass(Afon_Bidno, 'Log10M', 'Log10N')
+summary(Afon_Bidno_Model$all)
+abline(Afon_Bidno_Model$all)
+
+###Plotting Afon_Ceirw data###
+
+#Load River Afon_Ceirw data
+Afon_Ceirw<-LoadCommunity("Afon_Ceirw_DP")
+#file path takes you to the folder containing the three Afon_Ceirw .csv files
+
+#View Afon_Ceirw biomass pyramid
+PlotBPyramid(Afon_Ceirw)
+
+#Plot node properties
+PlotNPS(Afon_Ceirw,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Afon_Ceirw),ylab=Log10NLabel(Afon_Ceirw))
+
+#Determine Regression
+Afon_Ceirw_Model<-LinearRegressionByClass(Afon_Ceirw, 'Log10M', 'Log10N')
+summary(Afon_Ceirw_Model$all)
+abline(Afon_Ceirw_Model$all)
+
+###Plotting Afon_Dulais data###
+
+#Load River Afon_Dulais data
+Afon_Dulais<-LoadCommunity("Afon_Dulais_DP")
+#file path takes you to the folder containing the three Afon_Dulais .csv files
+
+#View Afon_Dulais biomass pyramid
+PlotBPyramid(Afon_Dulais)
+
+#Plot node properties
+PlotNPS(Afon_Dulais,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Afon_Dulais),ylab=Log10NLabel(Afon_Dulais))
+
+#Determine Regression
+Afon_Dulais_Model<-LinearRegressionByClass(Afon_Dulais, 'Log10M', 'Log10N')
+summary(Afon_Dulais_Model$all)
+abline(Afon_Dulais_Model$all)
+
+###Plotting Afon Gain data###
+
+#Load River Afon_Gain data
+Afon_Gain<-LoadCommunity("Afon_Gain_DP")
+#file path takes you to the folder containing the three Afon_Gain .csv files
+
+#View Afon_Gain biomass pyramid
+PlotBPyramid(Afon_Gain)
+
+#Plot node properties
+PlotNPS(Afon_Gain,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Afon_Gain),ylab=Log10NLabel(Afon_Gain))
+
+#Determine Regression
+Afon_Gain_Model<-LinearRegressionByClass(Afon_Gain, 'Log10M', 'Log10N')
+summary(Afon_Gain_Model$all)
+abline(Afon_Gain_Model$all)
+
+###Plotting Afon Gwy data###
+
+#Load River Afon_Gwy data
+Afon_Gwy<-LoadCommunity("Afon_Gwy_DP")
+#file path takes you to the folder containing the three Afon_Gwy .csv files
+
+#View Afon_Gain biomass pyramid
+PlotBPyramid(Afon_Gwy)
+
+#Plot node properties
+PlotNPS(Afon_Gwy,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Afon_Gwy),ylab=Log10NLabel(Afon_Gwy))
+
+#Determine Regression
+Afon_Gwy_Model<-LinearRegressionByClass(Afon_Gwy, 'Log10M', 'Log10N')
+summary(Afon_Gwy_Model$all)
+abline(Afon_Gwy_Model$all)
+
+###Plotting Afon Hafren data###
+
+#Load River Afon_Hafren data
+Afon_Hafren<-LoadCommunity("Afon_Hafren_DP")
+#file path takes you to the folder containing the three Afon_Hafren .csv files
+
+#View Afon_Hafren biomass pyramid
+PlotBPyramid(Afon_Hafren)
+
+#Plot node properties
+PlotNPS(Afon_Hafren,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Afon_Hafren),ylab=Log10NLabel(Afon_Hafren))
+
+#Determine Regression
+Afon_Hafren_Model<-LinearRegressionByClass(Afon_Hafren, 'Log10M', 'Log10N')
+summary(Afon_Hafren_Model$all)
+abline(Afon_Hafren_Model$all)
+
+###Plotting Afon Marteg data###
+
+#Load River Afon_Marteg data
+Afon_Marteg<-LoadCommunity("Afon_Marteg_DP")
+#file path takes you to the folder containing the three Afon_Marteg .csv files
+
+#View Afon_Marteg biomass pyramid
+PlotBPyramid(Afon_Marteg)
+
+#Plot node properties
+PlotNPS(Afon_Marteg,'Log10M','Log10N',highlight.nodes="Salmo salar",xlab=Log10MLabel(Afon_Marteg),ylab=Log10NLabel(Afon_Marteg))
+
+#Determine Regression
+Afon_Marteg_Model<-LinearRegressionByClass(Afon_Marteg, 'Log10M', 'Log10N')
+summary(Afon_Marteg_Model$all)
+abline(Afon_Marteg_Model$all)
+
+###Plotting Allt Mharcaidh data###
+
+#Load River Allt Mharcaidh data
+Allt_Mharcaidh<-LoadCommunity("Allt_Mharcaidh_DP")
+#file path takes you to the folder containing the three Allt_Mharcaidh .csv files
+
+#View Allt_Mharcaidh biomass pyramid
+PlotBPyramid(Allt_Mharcaidh)
+
+#Plot node properties
+PlotNPS(Allt_Mharcaidh,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Allt_Mharcaidh),ylab=Log10NLabel(Allt_Mharcaidh))
+
+#Determine Regression
+Allt_Mharcaidh_Model<-LinearRegressionByClass(Allt_Mharcaidh, 'Log10M', 'Log10N')
+summary(Allt_Mharcaidh_Model$all)
+abline(Allt_Mharcaidh_Model$all)
+
+###Plotting Allt_na_Coire_nan_Con data###
+
+#Load River Allt_na_Coire_nan_Con data
+Allt_na_Coire_nan_Con<-LoadCommunity("Allt_na_Coire_nan_Con_DP")
+#file path takes you to the folder containing the three Allt_na_Coire_nan_Con .csv files
+
+#View Allt_na_Coire_nan_Con biomass pyramid
+PlotBPyramid(Allt_na_Coire_nan_Con)
+
+#Plot node properties
+PlotNPS(Allt_na_Coire_nan_Con,'Log10M','Log10N',highlight.nodes="Siphonoperla torrentium",xlab=Log10MLabel(Allt_na_Coire_nan_Con),ylab=Log10NLabel(Allt_na_Coire_nan_Con))
+
+#Determine Regression
+Allt_na_Coire_nan_Con_Model<-LinearRegressionByClass(Allt_na_Coire_nan_Con, 'Log10M', 'Log10N')
+summary(Allt_na_Coire_nan_Con_Model$all)
+abline(Allt_na_Coire_nan_Con_Model$all)
+
+###Plotting Beaghs_Burn data###
+
+#Load River Beaghs_Burn data
+Beaghs_Burn<-LoadCommunity("Beaghs_Burn_DP")
+#file path takes you to the folder containing the three Beaghs_Burn .csv files
+
+#View Beaghs_Burn biomass pyramid
+PlotBPyramid(Beaghs_Burn)
+
+#Plot node properties
+PlotNPS(Beaghs_Burn,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Beaghs_Burn),ylab=Log10NLabel(Beaghs_Burn))
+
+#Determine Regression
+Beaghs_Burn_Model<-LinearRegressionByClass(Beaghs_Burn, 'Log10M', 'Log10N')
+summary(Beaghs_Burn_Model$all)
+abline(Beaghs_Burn_Model$all)
+
+###Plotting Broadstone_Stream data###
+
+#Load River Broadstone_Stream data
+Broadstone_Stream<-LoadCommunity("Broadstone_Stream_DP")
+#file path takes you to the folder containing the three Broadstone_Stream .csv files
+
+#View Broadstone_Stream biomass pyramid
+PlotBPyramid(Broadstone_Stream)
+
+#Plot node properties
+PlotNPS(Broadstone_Stream,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Broadstone_Stream),ylab=Log10NLabel(Broadstone_Stream))
+
+#Determine Regression
+Broadstone_Stream_Model<-LinearRegressionByClass(Broadstone_Stream, 'Log10M', 'Log10N')
+summary(Broadstone_Stream_Model$all)
+abline(Broadstone_Stream_Model$all)
+
+###Plotting Coneyglen_Burn data###
+
+#Load River Coneyglen_Burn data
+Coneyglen_Burn<-LoadCommunity("Coneyglen_Burn_DP")
+#file path takes you to the folder containing the three Coneyglen_Burn .csv files
+
+#View Coneyglen_Burn biomass pyramid
+PlotBPyramid(Coneyglen_Burn)
+
+#Plot node properties
+PlotNPS(Coneyglen_Burn,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Coneyglen_Burn),ylab=Log10NLabel(Coneyglen_Burn))
+
+#Determine Regression
+Coneyglen_Burn_Model<-LinearRegressionByClass(Coneyglen_Burn, 'Log10M', 'Log10N')
+summary(Coneyglen_Burn_Model$all)
+abline(Coneyglen_Burn_Model$all)
+
+###Plotting Dargall_Lane data###
+
+#Load River Dargall_Lane data
+Dargall_Lane<-LoadCommunity("Dargall_Lane_DP")
+#file path takes you to the folder containing the three Dargall_Lane .csv files
+
+#View Dargall_Lane biomass pyramid
+PlotBPyramid(Dargall_Lane)
+
+#Plot node properties
+PlotNPS(Dargall_Lane,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Dargall_Lane),ylab=Log10NLabel(Dargall_Lane))
+
+#Determine Regression
+Dargall_Lane_Model<-LinearRegressionByClass(Dargall_Lane, 'Log10M', 'Log10N')
+summary(Dargall_Lane_Model$all)
+abline(Dargall_Lane_Model$all)
+
+###Plotting Duddon_Pike_Beck data###
+
+#Load River Duddon_Pike_Beck data
+Duddon_Pike_Beck<-LoadCommunity("Duddon_Pike_Beck_DP")
+#file path takes you to the folder containing the three Duddon_Pike_Beck .csv files
+
+#View Duddon_Pike_Beck biomass pyramid
+PlotBPyramid(Duddon_Pike_Beck)
+
+#Plot node properties
+PlotNPS(Duddon_Pike_Beck,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Duddon_Pike_Beck),ylab=Log10NLabel(Duddon_Pike_Beck))
+
+#Determine Regression
+Duddon_Pike_Beck_Model<-LinearRegressionByClass(Duddon_Pike_Beck, 'Log10M', 'Log10N')
+summary(Duddon_Pike_Beck_Model$all)
+abline(Duddon_Pike_Beck_Model$all)
+
+###Plotting Hardknott_Gill data###
+
+#Load River Hardknott_Gill data
+Hardknott_Gill<-LoadCommunity("Hardknott_Gill_DP")
+#file path takes you to the folder containing the three Hardknott_Gill .csv files
+
+#View Hardknott_Gill biomass pyramid
+PlotBPyramid(Hardknott_Gill)
+
+#Plot node properties
+PlotNPS(Hardknott_Gill,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Hardknott_Gill),ylab=Log10NLabel(Hardknott_Gill))
+
+#Determine Regression
+Hardknott_Gill_Model<-LinearRegressionByClass(Hardknott_Gill, 'Log10M', 'Log10N')
+summary(Hardknott_Gill_Model$all)
+abline(Hardknott_Gill_Model$all)
+
+###Plotting Mill_Stream data###
+
+#Load River Mill_Stream data
+Mill_Stream<-LoadCommunity("Mill_Stream_DP")
+#file path takes you to the folder containing the three Mill_Stream .csv files
+
+#View Mill_Stream biomass pyramid
+PlotBPyramid(Mill_Stream)
+
+#Plot node properties
+PlotNPS(Mill_Stream,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Mill_Stream),ylab=Log10NLabel(Mill_Stream))
+
+#Determine Regression
+Mill_Stream_Model<-LinearRegressionByClass(Mill_Stream, 'Log10M', 'Log10N')
+summary(Mill_Stream_Model$all)
+abline(Mill_Stream_Model$all)
+
+###Plotting Nant_Clywedog_Uchaf data###
+
+#Load River Nant_Clywedog_Uchaf data
+Nant_Clywedog_Uchaf<-LoadCommunity("Nant_Clywedog_Uchaf_DP")
+#file path takes you to the folder containing the three Nant_Clywedog_Uchaf .csv files
+
+#View Nant_Clywedog_Uchaf biomass pyramid
+PlotBPyramid(Nant_Clywedog_Uchaf)
+
+#Plot node properties
+PlotNPS(Nant_Clywedog_Uchaf,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Nant_Clywedog_Uchaf),ylab=Log10NLabel(Nant_Clywedog_Uchaf))
+
+#Determine Regression
+Nant_Clywedog_Uchaf_Model<-LinearRegressionByClass(Nant_Clywedog_Uchaf, 'Log10M', 'Log10N')
+summary(Nant_Clywedog_Uchaf_Model$all)
+abline(Nant_Clywedog_Uchaf_Model$all)
+
+###Plotting Nant_Gelli_Gethin data###
+
+#Load River Nant_Gelli_Gethin data
+Nant_Gelli_Gethin<-LoadCommunity("Nant_Gelli_Gethin_DP")
+#file path takes you to the folder containing the three Nant_Gelli_Gethin .csv files
+
+#View Nant_Gelli_Gethin biomass pyramid
+PlotBPyramid(Nant_Gelli_Gethin)
+
+#Plot node properties
+PlotNPS(Nant_Gelli_Gethin,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Nant_Gelli_Gethin),ylab=Log10NLabel(Nant_Gelli_Gethin))
+
+#Determine Regression
+Nant_Gelli_Gethin_Model<-LinearRegressionByClass(Nant_Gelli_Gethin, 'Log10M', 'Log10N')
+summary(Nant_Gelli_Gethin_Model$all)
+abline(Nant_Gelli_Gethin_Model$all)
+
+###Plotting Nant_Pen_y_Cwm data###
+
+#Load River Nant_Pen_y_Cwm data
+Nant_Pen_y_Cwm<-LoadCommunity("Nant_Pen_y_Cwm_DP")
+#file path takes you to the folder containing the three Nant_Pen_y_Cwm .csv files
+
+#View Nant_Pen_y_Cwm biomass pyramid
+PlotBPyramid(Nant_Pen_y_Cwm)
+
+#Plot node properties
+PlotNPS(Nant_Pen_y_Cwm,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Nant_Pen_y_Cwm),ylab=Log10NLabel(Nant_Pen_y_Cwm))
+
+#Determine Regression
+Nant_Pen_y_Cwm_Model<-LinearRegressionByClass(Nant_Pen_y_Cwm, 'Log10M', 'Log10N')
+summary(Nant_Pen_y_Cwm_Model$all)
+abline(Nant_Pen_y_Cwm_Model$all)
+
+###Plotting Narrator_Brook data###
+
+#Load River Narrator_Brook data
+Narrator_Brook<-LoadCommunity("Narrator_Brook_DP")
+#file path takes you to the folder containing the three Narrator_Brook .csv files
+
+#View Narrator_Brook biomass pyramid
+PlotBPyramid(Narrator_Brook)
+
+#Plot node properties
+PlotNPS(Narrator_Brook,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Narrator_Brook),ylab=Log10NLabel(Narrator_Brook))
+
+#Determine Regression
+Narrator_Brook_Model<-LinearRegressionByClass(Narrator_Brook, 'Log10M', 'Log10N')
+summary(Narrator_Brook_Model$all)
+abline(Narrator_Brook_Model$all)
+
+citation("cheddar")
+citation("lme4")
+citation()
+
+###Plotting Old_Lodge data###
+
+#Load River Old_Lodge data
+Old_Lodge<-LoadCommunity("Old_Lodge_DP")
+#file path takes you to the folder containing the three Old_Lodge .csv files
+
+#View Old_Lodge biomass pyramid
+PlotBPyramid(Old_Lodge)
+
+#Plot node properties
+PlotNPS(Old_Lodge,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Old_Lodge),ylab=Log10NLabel(Old_Lodge))
+
+#Determine Regression
+Old_Lodge_Model<-LinearRegressionByClass(Old_Lodge, 'Log10M', 'Log10N')
+summary(Old_Lodge_Model$all)
+abline(Old_Lodge_Model$all)
+
+###Plotting River_Bure data###
+
+#Load River River_Bure data
+River_Bure<-LoadCommunity("River_Bure_DP")
+#file path takes you to the folder containing the three River_Bure .csv files
+
+#View River_Bure biomass pyramid
+PlotBPyramid(River_Bure)
+
+#Plot node properties
+PlotNPS(River_Bure,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(River_Bure),ylab=Log10NLabel(River_Bure))
+
+#Determine Regression
+River_Bure_Model<-LinearRegressionByClass(River_Bure, 'Log10M', 'Log10N')
+summary(River_Bure_Model$all)
+abline(River_Bure_Model$all)
+
+###Plotting River_Fiddich data###
+
+#Load River_Fiddich data
+River_Fiddich<-LoadCommunity("River_Fiddich_DP")
+#file path takes you to the folder containing the three River_Fiddich .csv files
+
+#View River_Fiddich biomass pyramid
+PlotBPyramid(River_Fiddich)
+
+#Plot node properties
+PlotNPS(River_Fiddich,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(River_Fiddich),ylab=Log10NLabel(River_Fiddich))
+
+#Determine Regression
+River_Fiddich_Model<-LinearRegressionByClass(River_Fiddich, 'Log10M', 'Log10N')
+summary(River_Fiddich_Model$all)
+abline(River_Fiddich_Model$all)
+
+###Plotting River_Loddon data###
+
+#Load River_Loddon data
+River_Loddon<-LoadCommunity("River_Loddon_DP")
+#file path takes you to the folder containing the three River_Loddon .csv files
+
+#View River_Loddon biomass pyramid
+PlotBPyramid(River_Loddon)
+
+#Plot node properties
+PlotNPS(River_Loddon,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(River_Loddon),ylab=Log10NLabel(River_Loddon))
+
+#Determine Regression
+River_Loddon_Model<-LinearRegressionByClass(River_Loddon, 'Log10M', 'Log10N')
+summary(River_Loddon_Model$all)
+abline(River_Loddon_Model$all)
+
+###Plotting River_Lyde data###
+
+#Load River_Lyde data
+River_Lyde<-LoadCommunity("River_Lyde_DP")
+#file path takes you to the folder containing the three River_Lyde .csv files
+
+#View River_Lyde biomass pyramid
+PlotBPyramid(River_Lyde)
+
+#Plot node properties
+PlotNPS(River_Lyde,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(River_Lyde),ylab=Log10NLabel(River_Lyde))
+
+#Determine Regression
+River_Lyde_Model<-LinearRegressionByClass(River_Lyde, 'Log10M', 'Log10N')
+summary(River_Lyde_Model$all)
+abline(River_Lyde_Model$all)
+
+###Plotting River_Test data###
+
+#Load River_Test data
+River_Test<-LoadCommunity("River_Test_DP")
+#file path takes you to the folder containing the three River_Test .csv files
+
+#View River_Test biomass pyramid
+PlotBPyramid(River_Test)
+
+#Plot node properties
+PlotNPS(River_Test,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(River_Test),ylab=Log10NLabel(River_Test))
+
+#Determine Regression
+River_Test_Model<-LinearRegressionByClass(River_Test, 'Log10M', 'Log10N')
+summary(River_Test_Model$all)
+abline(River_Test_Model$all)
+
+###Plotting River_Wensum data###
+
+#Load River_Wensum data
+River_Wensum<-LoadCommunity("River_Wensum_DP")
+#file path takes you to the folder containing the three River_Wensum .csv files
+
+#View River_Wensum biomass pyramid
+PlotBPyramid(River_Wensum)
+
+#Plot node properties
+PlotNPS(River_Wensum,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(River_Wensum),ylab=Log10NLabel(River_Wensum))
+
+#Determine Regression
+River_Wensum_Model<-LinearRegressionByClass(River_Wensum, 'Log10M', 'Log10N')
+summary(River_Wensum_Model$all)
+abline(River_Wensum_Model$all)
+
+###Plotting Tadnoll_Brook data###
+
+#Load Tadnoll_Brook data
+Tadnoll_Brook<-LoadCommunity("Tadnoll_Brook_DP")
+#file path takes you to the folder containing the three Tadnoll_Brook .csv files
+
+#View Tadnoll_Brook biomass pyramid
+PlotBPyramid(Tadnoll_Brook)
+
+#Plot node properties
+PlotNPS(Tadnoll_Brook,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Tadnoll_Brook),ylab=Log10NLabel(Tadnoll_Brook))
+
+#Determine Regression
+Tadnoll_Brook_Model<-LinearRegressionByClass(Tadnoll_Brook, 'Log10M', 'Log10N')
+summary(Tadnoll_Brook_Model$all)
+abline(Tadnoll_Brook_Model$all)
+
+###Plotting Upper_Duhonw data###
+
+#Load Upper_Duhonw data
+Upper_Duhonw<-LoadCommunity("Upper_Duhonw_DP")
+#file path takes you to the folder containing the three Upper_Duhonw .csv files
+
+#View Upper_Duhonw biomass pyramid
+PlotBPyramid(Upper_Duhonw)
+
+#Plot node properties
+PlotNPS(Upper_Duhonw,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Upper_Duhonw),ylab=Log10NLabel(Upper_Duhonw))
+
+#Determine Regression
+Upper_Duhonw_Model<-LinearRegressionByClass(Upper_Duhonw, 'Log10M', 'Log10N')
+summary(Upper_Duhonw_Model$all)
+abline(Upper_Duhonw_Model$all)
+
+###Plotting Upper_Llugwy data###
+
+#Load Upper_Llugwy data
+Upper_Llugwy<-LoadCommunity("Upper_Llugwy_DP")
+#file path takes you to the folder containing the three Upper_Llugwy .csv files
+
+#View Upper_Llugwy biomass pyramid
+PlotBPyramid(Upper_Llugwy)
+
+#Plot node properties
+PlotNPS(Upper_Llugwy,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(Upper_Llugwy),ylab=Log10NLabel(Upper_Llugwy))
+
+#Determine Regression
+Upper_Llugwy_Model<-LinearRegressionByClass(Upper_Llugwy, 'Log10M', 'Log10N')
+summary(Upper_Llugwy_Model$all)
+abline(Upper_Llugwy_Model$all)
+
+#ICELAND#
+
+#NE ICELAND#
+
+###Plotting Hafralonsa data ###
+
+#Load River Hafralonsa data
+Hafralonsa<-LoadCommunity("Hafralonsa_OM")
+#file path takes you to the folder containing the three Hafralonsa .csv files
+
+#View Hafralonsa biomass pyramid
+PlotBPyramid(Hafralonsa)
+
+#Plot node properties
+PlotNPS(Hafralonsa,'Log10M','Log10N',highlight.nodes="salmo trutta",xlab=Log10MLabel(Hafralonsa),ylab=Log10NLabel(Hafralonsa))
+
+#Determine Regression
+Hafralonsa_Model<-LinearRegressionByClass(Hafralonsa, 'Log10M', 'Log10N')
+summary(Hafralonsa_Model$all)
+abline(Hafralonsa_Model$all)
+
+###Plotting Hofsa data ###
+
+#Load River Hofsa data
+Hofsa<-LoadCommunity("Hofsa_OM")
+#file path takes you to the folder containing the three Hofsa .csv files
+
+#View Hofsa biomass pyramid
+PlotBPyramid(Hofsa)
+
+#Plot node properties
+PlotNPS(Hofsa,'Log10M','Log10N',highlight.nodes="Salmon",xlab=Log10MLabel(Hofsa),ylab=Log10NLabel(Hofsa))
+
+#Determine Regression
+Hofsa_Model<-LinearRegressionByClass(Hofsa, 'Log10M', 'Log10N')
+summary(Hofsa_Model$all)
+abline(Hofsa_Model$all)
+
+###Plotting Sela data WORKS  ###
+
+#Load River Sela data
+Sela<-LoadCommunity("Sela_OM")
+#file path takes you to the folder containing the three Sela .csv files
+
+#View Sela biomass pyramid
+PlotBPyramid(Sela)
+
+#Plot node properties
+PlotNPS(Sela,'Log10M','Log10N',highlight.nodes="salmon",xlab=Log10MLabel(Sela),ylab=Log10NLabel(Sela))
+
+#Determine Regression
+Sela_Model<-LinearRegressionByClass(Sela, 'Log10M', 'Log10N')
+summary(Sela_Model$all)
+abline(Sela_Model$all)
+
+###Plotting Midi_Up data  ###
+
+#Load River Midi_Up data
+Midi_Up<-LoadCommunity("Midi_Up_OM")
+#file path takes you to the folder containing the three Midi_Up .csv files
+
+#View Midi_Up biomass pyramid
+PlotBPyramid(Midi_Up)
+
+#Plot node properties
+PlotNPS(Midi_Up,'Log10M','Log10N',highlight.nodes="Char",xlab=Log10MLabel(Midi_Up),ylab=Log10NLabel(Midi_Up))
+
+#Determine Regression
+Midi_Up_Model<-LinearRegressionByClass(Midi_Up, 'Log10M', 'Log10N')
+summary(Midi_Up_Model$all)
+abline(Midi_Up_Model$all)
+
+###Plotting Midi_Down data  ###
+
+#Load River Midi_Down data
+Midi_Down<-LoadCommunity("Midi_Down_OM")
+#file path takes you to the folder containing the three Midi_Down .csv files
+
+#View Midi_Down biomass pyramid
+PlotBPyramid(Midi_Down)
+
+#Plot node properties
+PlotNPS(Midi_Down,'Log10M','Log10N',highlight.nodes="Salmo salar",xlab=Log10MLabel(Midi_Down),ylab=Log10NLabel(Midi_Down))
+
+#Determine Regression
+Midi_Down_Model<-LinearRegressionByClass(Midi_Down, 'Log10M', 'Log10N')
+summary(Midi_Down_Model$all)
+abline(Midi_Down_Model$all)
+
+###Plotting Vesturdalsa data ###
+
+#Load River Vesturdalsa data
+Vesturdalsa<-LoadCommunity("Vesturdalsa_OM")
+#file path takes you to the folder containing the three Vesturdalsa .csv files
+
+#View Vesturdalsa biomass pyramid
+PlotBPyramid(Vesturdalsa)
+
+#Plot node properties
+PlotNPS(Vesturdalsa,'Log10M','Log10N',highlight.nodes="Salmo salar",xlab=Log10MLabel(Vesturdalsa),ylab=Log10NLabel(Vesturdalsa))
+
+#Determine Regression
+Vesturdalsa_Model<-LinearRegressionByClass(Vesturdalsa, 'Log10M', 'Log10N')
+summary(Vesturdalsa_Model$all)
+abline(Vesturdalsa_Model$all)
+
+###Plotting NE_Iceland data ###
+
+#Load River NE_Iceland_Freshwater data
+NE_Iceland<-LoadCommunity("NE_Iceland_Freshwater_KLD")
+#file path takes you to the folder containing the three NE_Iceland .csv files
+
+#View NE_Iceland biomass pyramid
+PlotBPyramid(NE_Iceland)
+
+#Plot node properties
+PlotNPS(NE_Iceland,'Log10M','Log10N',highlight.nodes="salmon",xlab=Log10MLabel(NE_Iceland),ylab=Log10NLabel(NE_Iceland))
+
+###Plotting Iceland Freshwater data ###
+###THIS DATA LOOKS CORRUPTED NOT FOR FINAL USE###
+
+#Load River Iceland_Freshwater data
+Iceland_Freshwater<-LoadCommunity("Iceland_Freshwater_KLD")
+#file path takes you to the folder containing the three Iceland_Freshwater .csv files
+
+#View Iceland_Freshwater biomass pyramid
+PlotBPyramid(Iceland_Freshwater)
+
+#Plot node properties
+PlotNPS(Iceland_Freshwater,'Log10M','Log10N',highlight.nodes="Salmo salar",xlab=Log10MLabel(Iceland_Freshwater),ylab=Log10NLabel(Iceland_Freshwater))
+
+###Plotting Iceland Marine data ###
+###THIS DATA LOOKS CORRUPTED NOT FOR FINAL USE###
+
+#Load River Iceland_Marine data
+Iceland_Marine<-LoadCommunity("Iceland_Marine_KLD")
+#file path takes you to the folder containing the three Iceland_Marine .csv files
+
+#View Iceland_Marine biomass pyramid
+PlotBPyramid(Iceland_Marine)
+
+#Plot node properties
+PlotNPS(Iceland_Marine,'Log10M','Log10N',highlight.nodes="SALMO SALAR",xlab=Log10MLabel(Iceland_Marine),ylab=Log10NLabel(Iceland_Marine))
+
+#HENGILL#
+
+#ALL 2008 FILES#
+
+#Load River IS1_23C_2008 data
+IS1_23C_2008<-LoadCommunity("IS1_23C_2008")
+#file path takes you to the folder containing the three IS1_23C_2008 .csv files
+
+#View IS1_23C_2008 biomass pyramid
+PlotBPyramid(IS1_23C_2008)
+
+#Plot node properties
+PlotNPS(IS1_23C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS1_23C_2008),ylab=Log10NLabel(IS1_23C_2008))
+
+#Determine Regression
+IS1_23C_2008_Model<-LinearRegressionByClass(IS1_23C_2008, 'Log10M', 'Log10N')
+summary(IS1_23C_2008_Model$all)
+abline(IS1_23C_2008_Model$all)
+
+#Load River IS3_24C_2008 data
+IS3_24C_2008<-LoadCommunity("IS3_24C_2008")
+#file path takes you to the folder containing the three IS3_24C_2008 .csv files
+
+#View IS3_24C_2008 biomass pyramid
+PlotBPyramid(IS3_24C_2008)
+
+#Plot node properties
+PlotNPS(IS3_24C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS3_24C_2008),ylab=Log10NLabel(IS3_24C_2008))
+
+#Determine Regression
+IS3_24C_2008_Model<-LinearRegressionByClass(IS3_24C_2008, 'Log10M', 'Log10N')
+summary(IS3_24C_2008_Model$all)
+abline(IS3_24C_2008_Model$all)
+
+#Load River IS4_13C_2008 data
+IS4_13C_2008<-LoadCommunity("IS4_13C_2008")
+#file path takes you to the folder containing the three IS4_13C_2008 .csv files
+
+#View IS4_13C_2008 biomass pyramid
+PlotBPyramid(IS4_13C_2008)
+
+#Plot node properties
+PlotNPS(IS4_13C_2008,'Log10M','Log10N',highlight.nodes="Simulium vittatum",xlab=Log10MLabel(IS4_13C_2008),ylab=Log10NLabel(IS4_13C_2008))
+
+#Determine Regression
+IS4_13C_2008_Model<-LinearRegressionByClass(IS4_13C_2008, 'Log10M', 'Log10N')
+summary(IS4_13C_2008_Model$all)
+abline(IS4_13C_2008_Model$all)
+
+#Load River IS5_23C_2008 data
+IS5_23C_2008<-LoadCommunity("IS5_23C_2008")
+#file path takes you to the folder containing the three IS5_23C_2008 .csv files
+
+#View IS5_23C_2008 biomass pyramid
+PlotBPyramid(IS5_23C_2008)
+
+#Plot node properties
+PlotNPS(IS5_23C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS5_23C_2008),ylab=Log10NLabel(IS5_23C_2008))
+
+#Determine Regression
+IS5_23C_2008_Model<-LinearRegressionByClass(IS5_23C_2008, 'Log10M', 'Log10N')
+summary(IS5_23C_2008_Model$all)
+abline(IS5_23C_2008_Model$all)
+
+#Load River IS6_21C_2008 data
+IS6_21C_2008<-LoadCommunity("IS6_21C_2008")
+#file path takes you to the folder containing the three IS6_21C_2008 .csv files
+
+#View IS6_21C_2008 biomass pyramid
+PlotBPyramid(IS6_21C_2008)
+
+#Plot node properties
+PlotNPS(IS6_21C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS6_21C_2008),ylab=Log10NLabel(IS6_21C_2008))
+
+#Determine Regression
+IS6_21C_2008_Model<-LinearRegressionByClass(IS6_21C_2008, 'Log10M', 'Log10N')
+summary(IS6_21C_2008_Model$all)
+abline(IS6_21C_2008_Model$all)
+
+#Load River IS7_8C_2008 data
+IS7_8C_2008<-LoadCommunity("IS7_8C_2008")
+#file path takes you to the folder containing the three IS7_8C_2008 .csv files
+
+#View IS7_8C_2008 biomass pyramid
+PlotBPyramid(IS7_8C_2008)
+
+#Plot node properties
+PlotNPS(IS7_8C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS7_8C_2008),ylab=Log10NLabel(IS7_8C_2008))
+
+#Determine Regression
+IS7_8C_2008_Model<-LinearRegressionByClass(IS7_8C_2008, 'Log10M', 'Log10N')
+summary(IS7_8C_2008_Model$all)
+abline(IS7_8C_2008_Model$all)
+
+#Load River IS8_25C_2008 data
+IS8_25C_2008<-LoadCommunity("IS8_25C_2008")
+#file path takes you to the folder containing the three IS8_25C_2008 .csv files
+
+#View IS8_25C_2008 biomass pyramid
+PlotBPyramid(IS8_25C_2008)
+
+#Plot node properties
+PlotNPS(IS8_25C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS8_25C_2008),ylab=Log10NLabel(IS8_25C_2008))
+
+#Determine Regression
+IS8_25C_2008_Model<-LinearRegressionByClass(IS8_25C_2008, 'Log10M', 'Log10N')
+summary(IS8_25C_2008_Model$all)
+abline(IS8_25C_2008_Model$all)
+
+#Load River IS10_5C_2008 data
+IS10_5C_2008<-LoadCommunity("IS10_5C_2008")
+#file path takes you to the folder containing the three IS10_5C_2008 .csv files
+
+#View IS10_5C_2008 biomass pyramid
+PlotBPyramid(IS10_5C_2008)
+
+#Plot node properties
+PlotNPS(IS10_5C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS10_5C_2008),ylab=Log10NLabel(IS10_5C_2008))
+
+#Determine Regression
+IS10_5C_2008_Model<-LinearRegressionByClass(IS10_5C_2008, 'Log10M', 'Log10N')
+summary(IS10_5C_2008_Model$all)
+abline(IS10_5C_2008_Model$all)
+
+#Load River IS11_13C_2008 data
+IS11_13C_2008<-LoadCommunity("IS11_13C_2008")
+#file path takes you to the folder containing the three IS11_13C_2008 .csv files
+
+#View IS11_13C_2008 biomass pyramid
+PlotBPyramid(IS11_13C_2008)
+
+#Plot node properties
+PlotNPS(IS11_13C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS11_13C_2008),ylab=Log10NLabel(IS11_13C_2008))
+
+#Determine Regression
+IS11_13C_2008_Model<-LinearRegressionByClass(IS11_13C_2008, 'Log10M', 'Log10N')
+summary(IS11_13C_2008_Model$all)
+abline(IS11_13C_2008_Model$all)
+
+#Load River IS12_16C_2008 data
+IS12_16C_2008<-LoadCommunity("IS12_16C_2008")
+#file path takes you to the folder containing the three IS12_16C_2008 .csv files
+
+#View IS12_16C_2008 biomass pyramid
+PlotBPyramid(IS12_16C_2008)
+
+#Plot node properties
+PlotNPS(IS12_16C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS12_16C_2008),ylab=Log10NLabel(IS12_16C_2008))
+
+#Determine Regression
+IS12_16C_2008_Model<-LinearRegressionByClass(IS12_16C_2008, 'Log10M', 'Log10N')
+summary(IS12_16C_2008_Model$all)
+abline(IS12_16C_2008_Model$all)
+
+#Load River IS13_6C_2008 data
+IS13_6C_2008<-LoadCommunity("IS13_6C_2008")
+#file path takes you to the folder containing the three IS13_6C_2008 .csv files
+
+#View IS13_6C_2008 biomass pyramid
+PlotBPyramid(IS13_6C_2008)
+
+#Plot node properties
+PlotNPS(IS13_6C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS13_6C_2008),ylab=Log10NLabel(IS13_6C_2008))
+
+#Determine Regression
+IS13_6C_2008_Model<-LinearRegressionByClass(IS13_6C_2008, 'Log10M', 'Log10N')
+summary(IS13_6C_2008_Model$all)
+abline(IS13_6C_2008_Model$all)
+
+#Load River IS14_10C_2008 data
+IS14_10C_2008<-LoadCommunity("IS14_10C_2008")
+#file path takes you to the folder containing the three IS14_10C_2008 .csv files
+
+#View IS14_10C_2008 biomass pyramid
+PlotBPyramid(IS14_10C_2008)
+
+#Plot node properties
+PlotNPS(IS14_10C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS14_10C_2008),ylab=Log10NLabel(IS14_10C_2008))
+
+#Determine Regression
+IS14_10C_2008_Model<-LinearRegressionByClass(IS14_10C_2008, 'Log10M', 'Log10N')
+summary(IS14_10C_2008_Model$all)
+abline(IS14_10C_2008_Model$all)
+
+#Load River IS16_15C_2008 data
+IS16_15C_2008<-LoadCommunity("IS16_15C_2008")
+#file path takes you to the folder containing the three IS16_15C_2008 .csv files
+
+#View IS16_15C_2008 biomass pyramid
+PlotBPyramid(IS16_15C_2008)
+
+#Plot node properties
+PlotNPS(IS16_15C_2008,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS16_15C_2008),ylab=Log10NLabel(IS16_15C_2008))
+
+#Determine Regression
+IS16_15C_2008_Model<-LinearRegressionByClass(IS16_15C_2008, 'Log10M', 'Log10N')
+summary(IS16_15C_2008_Model$all)
+abline(IS16_15C_2008_Model$all)
+
+#ALL 2009 FILES#
+
+#Load River IS1_23C_2009 data
+IS1_23C_2009<-LoadCommunity("IS1_23C_2009")
+#file path takes you to the folder containing the three IS1_23C_2009 .csv files
+
+#View IS1_23C_2009 biomass pyramid
+PlotBPyramid(IS1_23C_2009)
+
+#Plot node properties
+PlotNPS(IS1_23C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS1_23C_2009),ylab=Log10NLabel(IS1_23C_2009))
+
+#Determine Regression
+IS1_23C_2009_Model<-LinearRegressionByClass(IS1_23C_2009, 'Log10M', 'Log10N')
+summary(IS1_23C_2009_Model$all)
+abline(IS1_23C_2009_Model$all)
+
+#Load River IS3_24C_2009 data
+IS3_24C_2009<-LoadCommunity("IS3_24C_2009")
+#file path takes you to the folder containing the three IS3_24C_2009 .csv files
+
+#View IS3_24C_2009 biomass pyramid
+PlotBPyramid(IS3_24C_2009)
+
+#Plot node properties
+PlotNPS(IS3_24C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS3_24C_2009),ylab=Log10NLabel(IS3_24C_2009))
+
+#Determine Regression
+IS3_24C_2009_Model<-LinearRegressionByClass(IS3_24C_2009, 'Log10M', 'Log10N')
+summary(IS3_24C_2009_Model$all)
+abline(IS3_24C_2009_Model$all)
+
+#Load River IS4_13C_2009 data
+IS4_13C_2009<-LoadCommunity("IS4_13C_2009")
+#file path takes you to the folder containing the three IS4_13C_2009 .csv files
+
+#View IS4_13C_2009 biomass pyramid
+PlotBPyramid(IS4_13C_2009)
+
+#Plot node properties
+PlotNPS(IS4_13C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS4_13C_2009),ylab=Log10NLabel(IS4_13C_2009))
+
+#Determine Regression
+IS4_13C_2009_Model<-LinearRegressionByClass(IS4_13C_2009, 'Log10M', 'Log10N')
+summary(IS4_13C_2009_Model$all)
+abline(IS4_13C_2009_Model$all)
+
+#Load River IS5_23C_2009 data
+IS5_23C_2009<-LoadCommunity("IS5_23C_2009")
+#file path takes you to the folder containing the three IS5_23C_2009 .csv files
+
+#View IS5_23C_2009 biomass pyramid
+PlotBPyramid(IS5_23C_2009)
+
+#Plot node properties
+PlotNPS(IS5_23C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS5_23C_2009),ylab=Log10NLabel(IS5_23C_2009))
+
+#Determine Regression
+IS5_23C_2009_Model<-LinearRegressionByClass(IS5_23C_2009, 'Log10M', 'Log10N')
+summary(IS5_23C_2009_Model$all)
+abline(IS5_23C_2009_Model$all)
+
+#Load River IS6_21C_2009 data
+IS6_21C_2009<-LoadCommunity("IS6_21C_2009")
+#file path takes you to the folder containing the three IS6_21C_2009 .csv files
+
+#View IS6_21C_2009 biomass pyramid
+PlotBPyramid(IS6_21C_2009)
+
+#Plot node properties
+PlotNPS(IS6_21C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS6_21C_2009),ylab=Log10NLabel(IS6_21C_2009))
+
+#Determine Regression
+IS6_21C_2009_Model<-LinearRegressionByClass(IS6_21C_2009, 'Log10M', 'Log10N')
+summary(IS6_21C_2009_Model$all)
+abline(IS6_21C_2009_Model$all)
+
+#Load River IS7_8C_2009 data
+IS7_8C_2009<-LoadCommunity("IS7_8C_2009")
+#file path takes you to the folder containing the three IS7_8C_2009 .csv files
+
+#View IS7_8C_2009 biomass pyramid
+PlotBPyramid(IS7_8C_2009)
+
+#Plot node properties
+PlotNPS(IS7_8C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS7_8C_2009),ylab=Log10NLabel(IS7_8C_2009))
+
+#Determine Regression
+IS7_8C_2009_Model<-LinearRegressionByClass(IS7_8C_2009, 'Log10M', 'Log10N')
+summary(IS7_8C_2009_Model$all)
+abline(IS7_8C_2009_Model$all)
+
+#Load River IS8_25C_2009 data
+IS8_25C_2009<-LoadCommunity("IS8_25C_2009")
+#file path takes you to the folder containing the three IS8_25C_2009 .csv files
+
+#View IS8_25C_2009 biomass pyramid
+PlotBPyramid(IS8_25C_2009)
+
+#Plot node properties
+PlotNPS(IS8_25C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS8_25C_2009),ylab=Log10NLabel(IS8_25C_2009))
+
+#Determine Regression
+IS8_25C_2009_Model<-LinearRegressionByClass(IS8_25C_2009, 'Log10M', 'Log10N')
+summary(IS8_25C_2009_Model$all)
+abline(IS8_25C_2009_Model$all)
+
+#Load River IS10_5C_2009 data
+IS10_5C_2009<-LoadCommunity("IS10_5C_2009")
+#file path takes you to the folder containing the three IS10_5C_2009 .csv files
+
+#View IS10_5C_2009 biomass pyramid
+PlotBPyramid(IS10_5C_2009)
+
+#Plot node properties
+PlotNPS(IS10_5C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS10_5C_2009),ylab=Log10NLabel(IS10_5C_2009))
+
+#Determine Regression
+IS10_5C_2009_Model<-LinearRegressionByClass(IS10_5C_2009, 'Log10M', 'Log10N')
+summary(IS10_5C_2009_Model$all)
+abline(IS10_5C_2009_Model$all)
+
+#Load River IS11_13C_2009 data
+IS11_13C_2009<-LoadCommunity("IS11_13C_2009")
+#file path takes you to the folder containing the three IS11_13C_2009 .csv files
+
+#View IS11_13C_2009 biomass pyramid
+PlotBPyramid(IS11_13C_2009)
+
+#Plot node properties
+PlotNPS(IS11_13C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS11_13C_2009),ylab=Log10NLabel(IS11_13C_2009))
+
+#Determine Regression
+IS11_13C_2009_Model<-LinearRegressionByClass(IS11_13C_2009, 'Log10M', 'Log10N')
+summary(IS11_13C_2009_Model$all)
+abline(IS11_13C_2009_Model$all)
+
+#Load River IS12_16C_2009 data
+IS12_16C_2009<-LoadCommunity("IS12_16C_2009")
+#file path takes you to the folder containing the three IS12_16C_2009 .csv files
+
+#View IS12_16C_2009 biomass pyramid
+PlotBPyramid(IS12_16C_2009)
+
+#Plot node properties
+PlotNPS(IS12_16C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS12_16C_2009),ylab=Log10NLabel(IS12_16C_2009))
+
+#Determine Regression
+IS12_16C_2009_Model<-LinearRegressionByClass(IS12_16C_2009, 'Log10M', 'Log10N')
+summary(IS12_16C_2009_Model$all)
+abline(IS12_16C_2009_Model$all)
+
+#Load River IS13_6C_2009 data
+IS13_6C_2009<-LoadCommunity("IS13_6C_2009")
+#file path takes you to the folder containing the three IS13_6C_2009 .csv files
+
+#View IS13_6C_2009 biomass pyramid
+PlotBPyramid(IS13_6C_2009)
+
+#Plot node properties
+PlotNPS(IS13_6C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS13_6C_2009),ylab=Log10NLabel(IS13_6C_2009))
+
+#Determine Regression
+IS13_6C_2009_Model<-LinearRegressionByClass(IS13_6C_2009, 'Log10M', 'Log10N')
+summary(IS13_6C_2009_Model$all)
+abline(IS13_6C_2009_Model$all)
+
+#Load River IS14_10C_2009 data
+IS14_10C_2009<-LoadCommunity("IS14_10C_2009")
+#file path takes you to the folder containing the three IS14_10C_2009 .csv files
+
+#View IS14_10C_2009 biomass pyramid
+PlotBPyramid(IS14_10C_2009)
+
+#Plot node properties
+PlotNPS(IS14_10C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS14_10C_2009),ylab=Log10NLabel(IS14_10C_2009))
+
+#Determine Regression
+IS14_10C_2009_Model<-LinearRegressionByClass(IS14_10C_2009, 'Log10M', 'Log10N')
+summary(IS14_10C_2009_Model$all)
+abline(IS14_10C_2009_Model$all)
+
+#Load River IS16_15C_2009 data
+IS16_15C_2009<-LoadCommunity("IS16_15C_2009")
+#file path takes you to the folder containing the three IS16_15C_2009 .csv files
+
+#View IS16_15C_2009 biomass pyramid
+PlotBPyramid(IS16_15C_2009)
+
+#Plot node properties
+PlotNPS(IS16_15C_2009,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(IS16_15C_2009),ylab=Log10NLabel(IS16_15C_2009))
+
+#Determine Regression
+IS16_15C_2009_Model<-LinearRegressionByClass(IS16_15C_2009, 'Log10M', 'Log10N')
+summary(IS16_15C_2009_Model$all)
+abline(IS16_15C_2009_Model$all)
+
+#Analyse Biomass 
+
+#SPANISH DATASET NO Producers#
+
+###Plotting AS002_2006 data ###
+
+#Load River AS002_2006 data
+AS002_2006<-LoadCommunity("AS002_2006")
+#file path takes you to the folder containing the three AS002_2006 .csv files
+
+#View AS002_2006 biomass pyramid
+PlotBPyramid(AS002_2006)
+
+#Plot node properties
+PlotNPS(AS002_2006,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(AS002_2006),ylab=Log10NLabel(AS002_2006))
+
+#Determine Regression
+AS002_2006_Model<-LinearRegressionByClass(AS002_2006, 'Log10M', 'Log10N')
+summary(AS002_2006_Model$all)
+abline(AS002_2006_Model$all)
+
+###Plotting AS012p_2006 data ###
+
+#Load River AS012p_2006 data
+AS012p_2006<-LoadCommunity("AS012p_2006")
+#file path takes you to the folder containing the three AS012p_2006 .csv files
+
+#View AS012p_2006 biomass pyramid
+PlotBPyramid(AS012p_2006)
+
+#Plot node properties
+PlotNPS(AS012p_2006,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(AS012p_2006),ylab=Log10NLabel(AS012p_2006))
+
+#Determine Regression
+AS012p_2006_Model<-LinearRegressionByClass(AS012p_2006, 'Log10M', 'Log10N')
+summary(AS012p_2006_Model$all)
+abline(AS012p_2006_Model$all)
+
+###Plotting AV001_2006 data ###
+
+#Load River AV001_2006 data
+AV001_2006<-LoadCommunity("AV001_2006")
+#file path takes you to the folder containing the three AV001_2006 .csv files
+
+#View AV001_2006 biomass pyramid
+PlotBPyramid(AV001_2006)
+
+#Plot node properties
+PlotNPS(AV001_2006,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(AV001_2006),ylab=Log10NLabel(AV001_2006))
+
+#Determine Regression
+AV001_2006_Model<-LinearRegressionByClass(AV001_2006, 'Log10M', 'Log10N')
+summary(AV001_2006_Model$all)
+abline(AV001_2006_Model$all)
+
+###Plotting BA001_2006 data ###
+
+#Load River BA001_2006 data
+BA001_2006<-LoadCommunity("BA001_2006")
+#file path takes you to the folder containing the three BA001_2006 .csv files
+
+#View BA001_2006 biomass pyramid
+PlotBPyramid(BA001_2006)
+
+#Plot node properties
+PlotNPS(BA001_2006,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(BA001_2006),ylab=Log10NLabel(BA001_2006))
+
+#Determine Regression
+BA001_2006_Model<-LinearRegressionByClass(BA001_2006, 'Log10M', 'Log10N')
+summary(BA001_2006_Model$all)
+abline(BA001_2006_Model$all)
+
+###Plotting BI003_2006 data ###
+
+#Load River BI003_2006 data
+BI003_2006<-LoadCommunity("BI003_2006")
+#file path takes you to the folder containing the three BI003_2006 .csv files
+
+#View BI003_2006 biomass pyramid
+PlotBPyramid(BI003_2006)
+
+#Plot node properties
+PlotNPS(BI003_2006,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(BI003_2006),ylab=Log10NLabel(BI003_2006))
+
+#Determine Regression
+BI003_2006_Model<-LinearRegressionByClass(BI003_2006, 'Log10M', 'Log10N')
+summary(BI003_2006_Model$all)
+abline(BI003_2006_Model$all)
+
+###Plotting BI005_2006 data ###
+
+#Load River BI005_2006 data
+BI005_2006<-LoadCommunity("BI005_2006")
+#file path takes you to the folder containing the three BI005_2006 .csv files
+
+#View BI005_2006 biomass pyramid
+PlotBPyramid(BI005_2006)
+
+#Plot node properties
+PlotNPS(BI005_2006,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(BI005_2006),ylab=Log10NLabel(BI005_2006))
+
+#Determine Regression
+BI005_2006_Model<-LinearRegressionByClass(BI005_2006, 'Log10M', 'Log10N')
+summary(BI005_2006_Model$all)
+abline(BI005_2006_Model$all)
+
+###Plotting BI006_2006 data ###
+
+#Load River BI006_2006 data
+BI006_2006<-LoadCommunity("BI006_2006")
+#file path takes you to the folder containing the three BI006_2006 .csv files
+
+#View BI006_2006 biomass pyramid
+PlotBPyramid(BI006_2006)
+
+#Plot node properties
+PlotNPS(BI006_2006,'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(BI006_2006),ylab=Log10NLabel(BI006_2006))
+
+#Determine Regression
+BI006_2006_Model<-LinearRegressionByClass(BI006_2006, 'Log10M', 'Log10N')
+summary(BI006_2006_Model$all)
+abline(BI006_2006_Model$all)
+
+###Plotting DC032_2008 data ###
+
+#Load River DC032_2008 data
+DC032_2008<-LoadCommunity("DC032_2008")
+#file path takes you to the folder containing the three DC032_2008 .csv files
+
+#View DC032_2008 biomass pyramid
+PlotBPyramid(DC032_2008)
+
+#Plot node properties
+PlotNPS((DC032_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(DC032_2008),ylab=Log10NLabel(DC032_2008))
+
+#Determine Regression
+DC032_2008_Model<-LinearRegressionByClass(DC032_2008, 'Log10M', 'Log10N')
+summary(DC032_2008_Model$all)
+abline(DC032_2008_Model$all)
+
+###Plotting EO007_2006 data ###
+
+#Load River EO007_2006 data
+EO007_2006<-LoadCommunity("EO007_2006")
+#file path takes you to the folder containing the three EO007_2006 .csv files
+
+#View EO007_2006 biomass pyramid
+PlotBPyramid(EO007_2006)
+
+#Plot node properties
+PlotNPS((EO007_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(EO007_2006),ylab=Log10NLabel(EO007_2006))
+
+#Determine Regression
+EO007_2006_Model<-LinearRegressionByClass(EO007_2006, 'Log10M', 'Log10N')
+summary(EO007_2006_Model$all)
+abline(EO007_2006_Model$all)
+
+###Plotting EO008_2008 data ###
+
+#Load River EO008_2008 data
+EO008_2008<-LoadCommunity("EO008_2008")
+#file path takes you to the folder containing the three EO008_2008 .csv files
+
+#View EO008_2008 biomass pyramid
+PlotBPyramid(EO008_2008)
+
+#Plot node properties
+PlotNPS((EO008_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(EO008_2008),ylab=Log10NLabel(EO008_2008))
+
+#Determine Regression
+EO008_2008_Model<-LinearRegressionByClass(EO008_2008, 'Log10M', 'Log10N')
+summary(EO008_2008_Model$all)
+abline(EO008_2008_Model$all)
+
+###Plotting ES001_2008 data ###
+
+#Load River ES001_2008 data
+ES001_2008<-LoadCommunity("ES001_2008")
+#file path takes you to the folder containing the three ES001_2008 .csv files
+
+#View ES001_2008 biomass pyramid
+PlotBPyramid(ES001_2008)
+
+#Plot node properties
+PlotNPS((ES001_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(ES001_2008),ylab=Log10NLabel(ES001_2008))
+
+#Determine Regression
+ES001_2008_Model<-LinearRegressionByClass(ES001_2008, 'Log10M', 'Log10N')
+summary(ES001_2008_Model$all)
+abline(ES001_2008_Model$all)
+
+###Plotting ES004_2006 data ###
+
+#Load River ES004_2006 data
+ES004_2006<-LoadCommunity("ES004_2006")
+#file path takes you to the folder containing the three ES004_2006 .csv files
+
+#View ES004_2006 biomass pyramid
+PlotBPyramid(ES004_2006)
+
+#Plot node properties
+PlotNPS((ES004_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(ES004_2006),ylab=Log10NLabel(ES004_2006))
+
+#Determine Regression
+ES004_2006_Model<-LinearRegressionByClass(ES004_2006, 'Log10M', 'Log10N')
+summary(ES004_2006_Model$all)
+abline(ES004_2006_Model$all)
+
+###Plotting MI008_2008 data ###
+
+#Load River MI008_2008 data
+MI008_2008<-LoadCommunity("MI008_2008")
+#file path takes you to the folder containing the three MI008_2008 .csv files
+
+#View MI008_2008 biomass pyramid
+PlotBPyramid(MI008_2008)
+
+#Plot node properties
+PlotNPS((MI008_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI008_2008),ylab=Log10NLabel(MI008_2008))
+
+#Determine Regression
+MI008_2008_Model<-LinearRegressionByClass(MI008_2008, 'Log10M', 'Log10N')
+summary(MI008_2008_Model$all)
+abline(MI008_2008_Model$all)
+
+###Plotting MI008_2008 data ###
+
+#Load River MI008_2008 data
+MI008_2008<-LoadCommunity("MI008_2008")
+#file path takes you to the folder containing the three MI008_2008 .csv files
+
+#View MI008_2008 biomass pyramid
+PlotBPyramid(MI008_2008)
+
+#Plot node properties
+PlotNPS((MI008_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI008_2008),ylab=Log10NLabel(MI008_2008))
+
+#Determine Regression
+MI008_2008_Model<-LinearRegressionByClass(MI008_2008, 'Log10M', 'Log10N')
+summary(MI008_2008_Model$all)
+abline(MI008_2008_Model$all)
+
+###Plotting MI009_2008 data ###
+
+#Load River MI009_2008 data
+MI009_2008<-LoadCommunity("MI009_2008")
+#file path takes you to the folder containing the three MI009_2008 .csv files
+
+#View MI009_2008 biomass pyramid
+PlotBPyramid(MI009_2008)
+
+#Plot node properties
+PlotNPS((MI009_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI009_2008),ylab=Log10NLabel(MI009_2008))
+
+#Determine Regression
+MI009_2008_Model<-LinearRegressionByClass(MI009_2008, 'Log10M', 'Log10N')
+summary(MI009_2008_Model$all)
+abline(MI009_2008_Model$all)
+
+###Plotting MI014_2008 data ###
+
+#Load River MI014_2008 data
+MI014_2008<-LoadCommunity("MI014_2008")
+#file path takes you to the folder containing the three MI014_2008 .csv files
+
+#View MI014_2008 biomass pyramid
+PlotBPyramid(MI014_2008)
+
+#Plot node properties
+PlotNPS((MI014_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI014_2008),ylab=Log10NLabel(MI014_2008))
+
+#Determine Regression
+MI014_2008_Model<-LinearRegressionByClass(MI014_2008, 'Log10M', 'Log10N')
+summary(MI014_2008_Model$all)
+abline(MI014_2008_Model$all)
+
+###Plotting MI030_2008 data ###
+
+#Load River MI030_2008 data
+MI030_2008<-LoadCommunity("MI030_2008")
+#file path takes you to the folder containing the three MI030_2008 .csv files
+
+#View MI030_2008 biomass pyramid
+PlotBPyramid(MI030_2008)
+
+#Plot node properties
+PlotNPS((MI030_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI030_2008),ylab=Log10NLabel(MI030_2008))
+
+#Determine Regression
+MI030_2008_Model<-LinearRegressionByClass(MI030_2008, 'Log10M', 'Log10N')
+summary(MI030_2008_Model$all)
+abline(MI030_2008_Model$all)
+
+###Plotting MI035_2008 data ###
+
+#Load River MI035_2008 data
+MI035_2008<-LoadCommunity("MI035_2008")
+#file path takes you to the folder containing the three MI035_2008 .csv files
+
+#View MI035_2008 biomass pyramid
+PlotBPyramid(MI035_2008)
+
+#Plot node properties
+PlotNPS((MI035_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI035_2008),ylab=Log10NLabel(MI035_2008))
+
+#Determine Regression
+MI035_2008_Model<-LinearRegressionByClass(MI035_2008, 'Log10M', 'Log10N')
+summary(MI035_2008_Model$all)
+abline(MI035_2008_Model$all)
+
+###Plotting MI086_2008 data ###
+
+#Load River MI086_2008 data
+MI086_2008<-LoadCommunity("MI086_2008")
+#file path takes you to the folder containing the three MI086_2008 .csv files
+
+#View MI086_2008 biomass pyramid
+PlotBPyramid(MI086_2008)
+
+#Plot node properties
+PlotNPS((MI086_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI086_2008),ylab=Log10NLabel(MI086_2008))
+
+#Determine Regression
+MI086_2008_Model<-LinearRegressionByClass(MI086_2008, 'Log10M', 'Log10N')
+summary(MI086_2008_Model$all)
+abline(MI086_2008_Model$all)
+
+###Plotting MI089_2008 data ###
+
+#Load River MI089_2006 data
+MI089_2006<-LoadCommunity("MI089_2006")
+#file path takes you to the folder containing the three MI089_2006 .csv files
+
+#View MI089_2006 biomass pyramid
+PlotBPyramid(MI089_2006)
+
+#Plot node properties
+PlotNPS((MI089_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI089_2006),ylab=Log10NLabel(MI089_2006))
+
+#Determine Regression
+MI089_2006_Model<-LinearRegressionByClass(MI089_2006, 'Log10M', 'Log10N')
+summary(MI089_2006_Model$all)
+abline(MI089_2006_Model$all)
+
+###Plotting MI089_2008 data ###
+
+#Load River MI090_2008 data
+MI090_2008<-LoadCommunity("MI090_2008")
+#file path takes you to the folder containing the three MI090_2008 .csv files
+
+#View MI090_2008 biomass pyramid
+PlotBPyramid(MI090_2008)
+
+#Plot node properties
+PlotNPS((MI090_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI090_2008),ylab=Log10NLabel(MI090_2008))
+
+#Determine Regression
+MI090_2008_Model<-LinearRegressionByClass(MI090_2008, 'Log10M', 'Log10N')
+summary(MI090_2008_Model$all)
+abline(MI090_2008_Model$all)
+
+###Plotting MI096_2008 data ###
+
+#Load River MI096_2008 data
+MI096_2008<-LoadCommunity("MI096_2008")
+#file path takes you to the folder containing the three MI096_2008 .csv files
+
+#View MI096_2008 biomass pyramid
+PlotBPyramid(MI096_2008)
+
+#Plot node properties
+PlotNPS((MI096_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI096_2008),ylab=Log10NLabel(MI096_2008))
+
+#Determine Regression
+MI096_2008_Model<-LinearRegressionByClass(MI096_2008, 'Log10M', 'Log10N')
+summary(MI096_2008_Model$all)
+abline(MI096_2008_Model$all)
+
+###Plotting MI099_2008 data ###
+
+#Load River MI099_2008 data
+MI099_2008<-LoadCommunity("MI099_2008")
+#file path takes you to the folder containing the three MI099_2008 .csv files
+
+#View MI099_2008 biomass pyramid
+PlotBPyramid(MI099_2008)
+
+#Plot node properties
+PlotNPS((MI099_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI099_2008),ylab=Log10NLabel(MI099_2008))
+
+#Determine Regression
+MI099_2008_Model<-LinearRegressionByClass(MI099_2008, 'Log10M', 'Log10N')
+summary(MI099_2008_Model$all)
+abline(MI099_2008_Model$all)
+
+###Plotting MI100_2006 data ###
+
+#Load River MI100_2006 data
+MI100_2006<-LoadCommunity("MI100_2006")
+#file path takes you to the folder containing the three MI100_2006 .csv files
+
+#View MI100_2006 biomass pyramid
+PlotBPyramid(MI100_2006)
+
+#Plot node properties
+PlotNPS((MI100_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI100_2006),ylab=Log10NLabel(MI100_2006))
+
+#Determine Regression
+MI100_2006_Model<-LinearRegressionByClass(MI100_2006, 'Log10M', 'Log10N')
+summary(MI100_2006_Model$all)
+abline(MI100_2006_Model$all)
+
+###Plotting MI112_2006 data ###
+
+#Load River MI112_2006 data
+MI112_2006<-LoadCommunity("MI112_2006")
+#file path takes you to the folder containing the three MI112_2006 .csv files
+
+#View MI112_2006 biomass pyramid
+PlotBPyramid(MI112_2006)
+
+#Plot node properties
+PlotNPS((MI112_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI112_2006),ylab=Log10NLabel(MI112_2006))
+
+#Determine Regression
+MI112_2006_Model<-LinearRegressionByClass(MI112_2006, 'Log10M', 'Log10N')
+summary(MI112_2006_Model$all)
+abline(MI112_2006_Model$all)
+
+###Plotting MI113_2006 data ###
+
+#Load River MI113_2006 data
+MI113_2006<-LoadCommunity("MI113_2006")
+#file path takes you to the folder containing the three MI113_2006 .csv files
+
+#View MI113_2006 biomass pyramid
+PlotBPyramid(MI113_2006)
+
+#Plot node properties
+PlotNPS((MI113_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI113_2006),ylab=Log10NLabel(MI113_2006))
+
+#Determine Regression
+MI113_2006_Model<-LinearRegressionByClass(MI113_2006, 'Log10M', 'Log10N')
+summary(MI113_2006_Model$all)
+abline(MI113_2006_Model$all)
+
+###Plotting MI123_2008 data ###
+
+#Load River MI123_2008 data
+MI123_2008<-LoadCommunity("MI123_2008")
+#file path takes you to the folder containing the three MI123_2008 .csv files
+
+#View MI123_2008 biomass pyramid
+PlotBPyramid(MI123_2008)
+
+#Plot node properties
+PlotNPS((MI123_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI123_2008),ylab=Log10NLabel(MI123_2008))
+
+#Determine Regression
+MI123_2008_Model<-LinearRegressionByClass(MI123_2008, 'Log10M', 'Log10N')
+summary(MI123_2008_Model$all)
+abline(MI123_2008_Model$all)
+
+###Plotting MI131_2006 data ###
+
+#Load River MI131_2006 data
+MI131_2006<-LoadCommunity("MI131_2006")
+#file path takes you to the folder containing the three MI131_2006 .csv files
+
+#View MI131_2006 biomass pyramid
+PlotBPyramid(MI131_2006)
+
+#Plot node properties
+PlotNPS((MI131_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI131_2006),ylab=Log10NLabel(MI131_2006))
+
+#Determine Regression
+MI131_2006_Model<-LinearRegressionByClass(MI131_2006, 'Log10M', 'Log10N')
+summary(MI131_2006_Model$all)
+abline(MI131_2006_Model$all)
+
+###Plotting MI131_2006 data ###
+
+#Load River MI132_2006 data
+MI132_2006<-LoadCommunity("MI132_2006")
+#file path takes you to the folder containing the three MI132_2006 .csv files
+
+#View MI132_2006 biomass pyramid
+PlotBPyramid(MI132_2006)
+
+#Plot node properties
+PlotNPS((MI132_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI132_2006),ylab=Log10NLabel(MI132_2006))
+
+#Determine Regression
+MI132_2006_Model<-LinearRegressionByClass(MI132_2006, 'Log10M', 'Log10N')
+summary(MI132_2006_Model$all)
+abline(MI132_2006_Model$all)
+
+###Plotting MI135_2008 data ###
+
+#Load River MI135_2008 data
+MI135_2008<-LoadCommunity("MI135_2008")
+#file path takes you to the folder containing the three MI135_2008 .csv files
+
+#View MI135_2008 biomass pyramid
+PlotBPyramid(MI135_2008)
+
+#Plot node properties
+PlotNPS((MI135_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI135_2008),ylab=Log10NLabel(MI135_2008))
+
+#Determine Regression
+MI135_2008_Model<-LinearRegressionByClass(MI135_2008, 'Log10M', 'Log10N')
+summary(MI135_2008_Model$all)
+abline(MI135_2008_Model$all)
+
+###Plotting MI140_2006 data ###
+
+#Load River MI140_2006 data
+MI140_2006<-LoadCommunity("MI140_2006")
+#file path takes you to the folder containing the three MI140_2006 .csv files
+
+#View MI140_2006 biomass pyramid
+PlotBPyramid(MI140_2006)
+
+#Plot node properties
+PlotNPS((MI140_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI140_2006),ylab=Log10NLabel(MI140_2006))
+
+#Determine Regression
+MI140_2006_Model<-LinearRegressionByClass(MI140_2006, 'Log10M', 'Log10N')
+summary(MI140_2006_Model$all)
+abline(MI140_2006_Model$all)
+
+###Plotting MI147_2008 data ###
+
+#Load River MI147_2008 data
+MI147_2008<-LoadCommunity("MI147_2008")
+#file path takes you to the folder containing the three MI147_2008 .csv files
+
+#View MI147_2008 biomass pyramid
+PlotBPyramid(MI147_2008)
+
+#Plot node properties
+PlotNPS((MI147_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI147_2008),ylab=Log10NLabel(MI147_2008))
+
+#Determine Regression
+MI147_2008_Model<-LinearRegressionByClass(MI147_2008, 'Log10M', 'Log10N')
+summary(MI147_2008_Model$all)
+abline(MI147_2008_Model$all)
+
+###Plotting MI151_2006 data ###
+
+#Load River MI151_2006 data
+MI151_2006<-LoadCommunity("MI151_2006")
+#file path takes you to the folder containing the three MI151_2006 .csv files
+
+#View MI151_2006 biomass pyramid
+PlotBPyramid(MI151_2006)
+
+#Plot node properties
+PlotNPS((MI151_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI151_2006),ylab=Log10NLabel(MI151_2006))
+
+#Determine Regression
+MI151_2006_Model<-LinearRegressionByClass(MI151_2006, 'Log10M', 'Log10N')
+summary(MI151_2006_Model$all)
+abline(MI151_2006_Model$all)
+
+###Plotting MI151_2006 data ###
+
+#Load River MI151_2006 data
+MI151_2006<-LoadCommunity("MI151_2006")
+#file path takes you to the folder containing the three MI151_2006 .csv files
+
+#View MI151_2006 biomass pyramid
+PlotBPyramid(MI151_2006)
+
+#Plot node properties
+PlotNPS((MI151_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI151_2006),ylab=Log10NLabel(MI151_2006))
+
+#Determine Regression
+MI151_2006_Model<-LinearRegressionByClass(MI151_2006, 'Log10M', 'Log10N')
+summary(MI151_2006_Model$all)
+abline(MI151_2006_Model$all)
+
+###Plotting MI605_2006 data ###
+
+#Load River MI605_2006 data
+MI605_2006<-LoadCommunity("MI605_2006")
+#file path takes you to the folder containing the three MI605_2006 .csv files
+
+#View MI605_2006 biomass pyramid
+PlotBPyramid(MI605_2006)
+
+#Plot node properties
+PlotNPS((MI605_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI605_2006),ylab=Log10NLabel(MI605_2006))
+
+#Determine Regression
+MI605_2006_Model<-LinearRegressionByClass(MI605_2006, 'Log10M', 'Log10N')
+summary(MI605_2006_Model$all)
+abline(MI605_2006_Model$all)
+
+###Plotting MI701_2008 data ###
+
+#Load River MI701_2008 data
+MI701_2008<-LoadCommunity("MI701_2008")
+#file path takes you to the folder containing the three MI701_2008 .csv files
+
+#View MI701_2008 biomass pyramid
+PlotBPyramid(MI701_2008)
+
+#Plot node properties
+PlotNPS((MI701_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MI701_2008),ylab=Log10NLabel(MI701_2008))
+
+#Determine Regression
+MI701_2008_Model<-LinearRegressionByClass(MI701_2008, 'Log10M', 'Log10N')
+summary(MI701_2008_Model$all)
+abline(MI701_2008_Model$all)
+
+###Plotting MIE003_2006 data ###
+
+#Load River MIE003_2006 data
+MIE003_2006<-LoadCommunity("MIE003_2006")
+#file path takes you to the folder containing the three MIE003_2006 .csv files
+
+#View MIE003_2006 biomass pyramid
+PlotBPyramid(MIE003_2006)
+
+#Plot node properties
+PlotNPS((MIE003_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(MIE003_2006),ylab=Log10NLabel(MIE003_2006))
+
+#Determine Regression
+MIE003_2006_Model<-LinearRegressionByClass(MIE003_2006, 'Log10M', 'Log10N')
+summary(MIE003_2006_Model$all)
+abline(MIE003_2006_Model$all)
+
+###Plotting NA001_2006 data ###
+
+#Load River NA001_2006 data
+NA001_2006<-LoadCommunity("NA001_2006")
+#file path takes you to the folder containing the three NA001_2006 .csv files
+
+#View NA001_2006 biomass pyramid
+PlotBPyramid(NA001_2006)
+
+#Plot node properties
+PlotNPS((NA001_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NA001_2006),ylab=Log10NLabel(NA001_2006))
+
+#Determine Regression
+NA001_2006_Model<-LinearRegressionByClass(NA001_2006, 'Log10M', 'Log10N')
+summary(NA001_2006_Model$all)
+abline(NA001_2006_Model$all)
+
+###Plotting NA006_2008 data ###
+
+#Load River NA006_2008 data
+NA006_2008<-LoadCommunity("NA006_2008")
+#file path takes you to the folder containing the three NA006_2008 .csv files
+
+#View NA006_2008 biomass pyramid
+PlotBPyramid(NA006_2008)
+
+#Plot node properties
+PlotNPS((NA006_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NA006_2008),ylab=Log10NLabel(NA006_2008))
+
+#Determine Regression
+NA006_2008_Model<-LinearRegressionByClass(NA006_2008, 'Log10M', 'Log10N')
+summary(NA006_2008_Model$all)
+abline(NA006_2008_Model$all)
+
+###Plotting NA008_2008 data ###
+
+#Load River NA008_2008 data
+NA008_2008<-LoadCommunity("NA008_2008")
+#file path takes you to the folder containing the three NA008_2008 .csv files
+
+#View NA008_2008 biomass pyramid
+PlotBPyramid(NA008_2008)
+
+#Plot node properties
+PlotNPS((NA008_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NA008_2008),ylab=Log10NLabel(NA008_2008))
+
+#Determine Regression
+NA008_2008_Model<-LinearRegressionByClass(NA008_2008, 'Log10M', 'Log10N')
+summary(NA008_2008_Model$all)
+abline(NA008_2008_Model$all)
+
+###Plotting NA011_2006 data ###
+
+#Load River NA011_2006 data
+NA011_2006<-LoadCommunity("NA011_2006")
+#file path takes you to the folder containing the three NA011_2006 .csv files
+
+#View NA011_2006 biomass pyramid
+PlotBPyramid(NA011_2006)
+
+#Plot node properties
+PlotNPS((NA011_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NA011_2006),ylab=Log10NLabel(NA011_2006))
+
+#Determine Regression
+NA011_2006_Model<-LinearRegressionByClass(NA011_2006, 'Log10M', 'Log10N')
+summary(NA011_2006_Model$all)
+abline(NA011_2006_Model$all)
+
+###Plotting NA014_2008 data ###
+
+#Load River NA014_2008 data
+NA014_2008<-LoadCommunity("NA014_2008")
+#file path takes you to the folder containing the three NA014_2008 .csv files
+
+#View NA014_2008 biomass pyramid
+PlotBPyramid(NA014_2008)
+
+#Plot node properties
+PlotNPS((NA014_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NA014_2008),ylab=Log10NLabel(NA014_2008))
+
+#Determine Regression
+NA014_2008_Model<-LinearRegressionByClass(NA014_2008, 'Log10M', 'Log10N')
+summary(NA014_2008_Model$all)
+abline(NA014_2008_Model$all)
+
+###Plotting NAL005_2006 data ###
+
+#Load River NAL005_2006 data
+NAL005_2006<-LoadCommunity("NAL005_2006")
+#file path takes you to the folder containing the three NAL005_2006 .csv files
+
+#View NAL005_2006 biomass pyramid
+PlotBPyramid(NAL005_2006)
+
+#Plot node properties
+PlotNPS((NAL005_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL005_2006),ylab=Log10NLabel(NAL005_2006))
+
+#Determine Regression
+NAL005_2006_Model<-LinearRegressionByClass(NAL005_2006, 'Log10M', 'Log10N')
+summary(NAL005_2006_Model$all)
+abline(NAL005_2006_Model$all)
+
+###Plotting NAL016_2008 data ###
+
+#Load River NAL016_2008 data
+NAL016_2008<-LoadCommunity("NAL016_2008")
+#file path takes you to the folder containing the three NAL016_2008 .csv files
+
+#View NAL016_2008 biomass pyramid
+PlotBPyramid(NAL016_2008)
+
+#Plot node properties
+PlotNPS((NAL016_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL016_2008),ylab=Log10NLabel(NAL016_2008))
+
+#Determine Regression
+NAL016_2008_Model<-LinearRegressionByClass(NAL016_2008, 'Log10M', 'Log10N')
+summary(NAL016_2008_Model$all)
+abline(NAL016_2008_Model$all)
+
+###Plotting NAL027_2006 data ###
+
+#Load River NAL027_2006 data
+NAL027_2006<-LoadCommunity("NAL027_2006")
+#file path takes you to the folder containing the three NAL027_2006 .csv files
+
+#View NAL027_2006 biomass pyramid
+PlotBPyramid(NAL027_2006)
+
+#Plot node properties
+PlotNPS((NAL027_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL027_2006),ylab=Log10NLabel(NAL027_2006))
+
+#Determine Regression
+NAL027_2006_Model<-LinearRegressionByClass(NAL027_2006, 'Log10M', 'Log10N')
+summary(NAL027_2006_Model$all)
+abline(NAL027_2006_Model$all)
+
+###Plotting NAL030_2006 data ###
+
+#Load River NAL030_2006 data
+NAL030_2006<-LoadCommunity("NAL030_2006")
+#file path takes you to the folder containing the three NAL030_2006 .csv files
+
+#View NAL030_2006 biomass pyramid
+PlotBPyramid(NAL030_2006)
+
+#Plot node properties
+PlotNPS((NAL030_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL030_2006),ylab=Log10NLabel(NAL030_2006))
+
+#Determine Regression
+NAL030_2006_Model<-LinearRegressionByClass(NAL030_2006, 'Log10M', 'Log10N')
+summary(NAL030_2006_Model$all)
+abline(NAL030_2006_Model$all)
+
+###Plotting NAL042_2008 data ###
+
+#Load River NAL042_2008 data
+NAL042_2008<-LoadCommunity("NAL042_2008")
+#file path takes you to the folder containing the three NAL042_2008 .csv files
+
+#View NAL042_2008 biomass pyramid
+PlotBPyramid(NAL042_2008)
+
+#Plot node properties
+PlotNPS((NAL042_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL042_2008),ylab=Log10NLabel(NAL042_2008))
+
+#Determine Regression
+NAL042_2008_Model<-LinearRegressionByClass(NAL042_2008, 'Log10M', 'Log10N')
+summary(NAL042_2008_Model$all)
+abline(NAL042_2008_Model$all)
+
+###Plotting NAL044_2008 data ###
+
+#Load River NAL044_2008 data
+NAL044_2008<-LoadCommunity("NAL044_2008")
+#file path takes you to the folder containing the three NAL044_2008 .csv files
+
+#View NAL044_2008 biomass pyramid
+PlotBPyramid(NAL044_2008)
+
+#Plot node properties
+PlotNPS((NAL044_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL044_2008),ylab=Log10NLabel(NAL044_2008))
+
+#Determine Regression
+NAL044_2008_Model<-LinearRegressionByClass(NAL044_2008, 'Log10M', 'Log10N')
+summary(NAL044_2008_Model$all)
+abline(NAL044_2008_Model$all)
+
+###Plotting NAL055_2006 data ###
+
+#Load River NAL055_2006 data
+NAL055_2006<-LoadCommunity("NAL055_2006")
+#file path takes you to the folder containing the three NAL055_2006 .csv files
+
+#View NAL055_2006 biomass pyramid
+PlotBPyramid(NAL055_2006)
+
+#Plot node properties
+PlotNPS((NAL055_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL055_2006),ylab=Log10NLabel(NAL055_2006))
+
+#Determine Regression
+NAL055_2006_Model<-LinearRegressionByClass(NAL055_2006, 'Log10M', 'Log10N')
+summary(NAL055_2006_Model$all)
+abline(NAL055_2006_Model$all)
+
+###Plotting NAL059_2008 data ###
+
+#Load River NAL059_2008 data
+NAL059_2008<-LoadCommunity("NAL059_2008")
+#file path takes you to the folder containing the three NAL059_2008 .csv files
+
+#View NAL059_2008 biomass pyramid
+PlotBPyramid(NAL059_2008)
+
+#Plot node properties
+PlotNPS((NAL059_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL059_2008),ylab=Log10NLabel(NAL059_2008))
+
+#Determine Regression
+NAL059_2008_Model<-LinearRegressionByClass(NAL059_2008, 'Log10M', 'Log10N')
+summary(NAL059_2008_Model$all)
+abline(NAL059_2008_Model$all)
+
+###Plotting NAL062_2006 data ###
+
+#Load River NAL062_2006 data
+NAL062_2006<-LoadCommunity("NAL062_2006")
+#file path takes you to the folder containing the three NAL062_2006 .csv files
+
+#View NAL062_2006 biomass pyramid
+PlotBPyramid(NAL062_2006)
+
+#Plot node properties
+PlotNPS((NAL062_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL062_2006),ylab=Log10NLabel(NAL062_2006))
+
+#Determine Regression
+NAL062_2006_Model<-LinearRegressionByClass(NAL062_2006, 'Log10M', 'Log10N')
+summary(NAL062_2006_Model$all)
+abline(NAL062_2006_Model$all)
+
+###Plotting NAL200_2006 data ###
+
+#Load River NAL200_2006 data
+NAL200_2006<-LoadCommunity("NAL200_2006")
+#file path takes you to the folder containing the three NAL200_2006 .csv files
+
+#View NAL200_2006 biomass pyramid
+PlotBPyramid(NAL200_2006)
+
+#Plot node properties
+PlotNPS((NAL200_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NAL200_2006),ylab=Log10NLabel(NAL200_2006))
+
+#Determine Regression
+NAL200_2006_Model<-LinearRegressionByClass(NAL200_2006, 'Log10M', 'Log10N')
+summary(NAL200_2006_Model$all)
+abline(NAL200_2006_Model$all)
+
+###Plotting NER010_2006 data ###
+
+#Load River NER010_2006 data
+NER010_2006<-LoadCommunity("NER010_2006")
+#file path takes you to the folder containing the three NER010_2006 .csv files
+
+#View NER010_2006 biomass pyramid
+PlotBPyramid(NER010_2006)
+
+#Plot node properties
+PlotNPS((NER010_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(NER010_2006),ylab=Log10NLabel(NER010_2006))
+
+#Determine Regression
+NER010_2006_Model<-LinearRegressionByClass(NER010_2006, 'Log10M', 'Log10N')
+summary(NER010_2006_Model$all)
+abline(NER010_2006_Model$all)
+
+###Plotting OR004_2006 data ###
+
+#Load River OR004_2006 data
+OR004_2006<-LoadCommunity("OR004_2006")
+#file path takes you to the folder containing the three OR004_2006 .csv files
+
+#View OR004_2006 biomass pyramid
+PlotBPyramid(OR004_2006)
+
+#Plot node properties
+PlotNPS((OR004_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(OR004_2006),ylab=Log10NLabel(OR004_2006))
+
+#Determine Regression
+OR004_2006_Model<-LinearRegressionByClass(OR004_2006, 'Log10M', 'Log10N')
+summary(OR004_2006_Model$all)
+abline(OR004_2006_Model$all)
+
+###Plotting OR005_2008 data ###
+
+#Load River OR005_2008 data
+OR005_2008<-LoadCommunity("OR005_2008")
+#file path takes you to the folder containing the three OR005_2008 .csv files
+
+#View OR005_2008 biomass pyramid
+PlotBPyramid(OR005_2008)
+
+#Plot node properties
+PlotNPS((OR005_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(OR005_2008),ylab=Log10NLabel(OR005_2008))
+
+#Determine Regression
+OR005_2008_Model<-LinearRegressionByClass(OR005_2008, 'Log10M', 'Log10N')
+summary(OR005_2008_Model$all)
+abline(OR005_2008_Model$all)
+
+###Plotting PU001_2008 data ###
+
+#Load River PU001_2008 data
+PU001_2008<-LoadCommunity("PU001_2008")
+#file path takes you to the folder containing the three PU001_2008 .csv files
+
+#View PU001_2008 biomass pyramid
+PlotBPyramid(PU001_2008)
+
+#Plot node properties
+PlotNPS((PU001_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(PU001_2008),ylab=Log10NLabel(PU001_2008))
+
+#Determine Regression
+PU001_2008_Model<-LinearRegressionByClass(PU001_2008, 'Log10M', 'Log10N')
+summary(PU001_2008_Model$all)
+abline(PU001_2008_Model$all)
+
+###Plotting PU002_2008 data ###
+
+#Load River PU002_2008 data
+PU002_2008<-LoadCommunity("PU002_2008")
+#file path takes you to the folder containing the three PU002_2008 .csv files
+
+#View PU002_2008 biomass pyramid
+PlotBPyramid(PU002_2008)
+
+#Plot node properties
+PlotNPS((PU002_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(PU002_2008),ylab=Log10NLabel(PU002_2008))
+
+#Determine Regression
+PU002_2008_Model<-LinearRegressionByClass(PU002_2008, 'Log10M', 'Log10N')
+summary(PU002_2008_Model$all)
+abline(PU002_2008_Model$all)
+
+###Plotting PU004_2006 data ###
+
+#Load River PU004_2006 data
+PU004_2006<-LoadCommunity("PU004_2006")
+#file path takes you to the folder containing the three PU004_2006 .csv files
+
+#View PU004_2006 biomass pyramid
+PlotBPyramid(PU004_2006)
+
+#Plot node properties
+PlotNPS((PU004_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(PU004_2006),ylab=Log10NLabel(PU004_2006))
+
+#Determine Regression
+PU004_2006_Model<-LinearRegressionByClass(PU004_2006, 'Log10M', 'Log10N')
+summary(PU004_2006_Model$all)
+abline(PU004_2006_Model$all)
+
+###Plotting SE002_2008 data ###
+
+#Load River SE002_2008 data
+SE002_2008<-LoadCommunity("SE002_2008")
+#file path takes you to the folder containing the three SE002_2008 .csv files
+
+#View SE002_2008 biomass pyramid
+PlotBPyramid(SE002_2008)
+
+#Plot node properties
+PlotNPS((SE002_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(SE002_2008),ylab=Log10NLabel(SE002_2008))
+
+#Determine Regression
+SE002_2008_Model<-LinearRegressionByClass(SE002_2008, 'Log10M', 'Log10N')
+summary(SE002_2008_Model$all)
+abline(SE002_2008_Model$all)
+
+###Plotting SE008_2006 data ###
+
+#Load River SE008_2006 data
+SE008_2006<-LoadCommunity("SE008_2006")
+#file path takes you to the folder containing the three SE008_2006 .csv files
+
+#View SE008_2006 biomass pyramid
+PlotBPyramid(SE008_2006)
+
+#Plot node properties
+PlotNPS((SE008_2006),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(SE008_2006),ylab=Log10NLabel(SE008_2006))
+
+#Determine Regression
+SE008_2006_Model<-LinearRegressionByClass(SE008_2006, 'Log10M', 'Log10N')
+summary(SE008_2006_Model$all)
+abline(SE008_2006_Model$all)
+
+###Plotting SE013_2008 data ###
+
+#Load River SE013_2008 data
+SE013_2008<-LoadCommunity("SE013_2008")
+#file path takes you to the folder containing the three SE013_2008 .csv files
+
+#View SE013_2008 biomass pyramid
+PlotBPyramid(SE013_2008)
+
+#Plot node properties
+PlotNPS((SE013_2008),'Log10M','Log10N',highlight.nodes="Salmo trutta",xlab=Log10MLabel(SE013_2008),ylab=Log10NLabel(SE013_2008))
+
+#Determine Regression
+SE013_2008_Model<-LinearRegressionByClass(SE013_2008, 'Log10M', 'Log10N')
+summary(SE013_2008_Model$all)
+abline(SE013_2008_Model$all)
+
+#--------------------------------------------END OF CHEDDAR CODE---------------------------------------------------------#
+
+
+--------#Visual Plots#-----------------------
+
+#plot Trutta Biomass against Invert Biomass#
+plot(x = log(Trutta_Database$Trutta_Biomass),y = log(Trutta_Database$Invert_Biomass),
+     xlab = "Log_Trutta_Biomass mg/m2",
+     ylab = "Log_Invert_Biomass mg/m2",
+     main = "Log Invert Biomass by Log S. trutta Biomass")
+
+#plot Trutta abundance against Invert abundance#
+plot(x = log(Trutta_Database$Trutta_Abund),y = log(Trutta_Database$Invert_Abundance),
+     xlab = "Log_Trutta_Abundance n/m2",
+     ylab = "Log_Invert_Abundance n/m2",
+     main = "Log Invert Abundance by Log S. trutta Abundnace")
+
+#plot Fish abundance against Invert abundance#
+plot(x = log(Trutta_Database$Fish_Abundance),y = log(Trutta_Database$Invert_Abundance),
+     xlab = "Log_Fish_Abundance n/m2",
+     ylab = "Log_Invert_Abundance n/m2",
+     main = "Log Invert Abundance by Log Fish Abundnace")
+
+#plot Trutta_Abund against Temperature#
+plot(x = log(Trutta_Database$Water_Temp),y = log(Trutta_Database$Trutta_Abund),
+     xlab = "Temperature °C",
+     ylab = "Log S. trutta_Abundance /m2",
+     main = "Log S. Trutta Abundance by Temperature")
+abline(IB_TB)
+
+#plot Invert_Biomass against Temperature#
+plot(x = log(Trutta_Database$Water_Temp),y = log(Trutta_Database$Invert_Abundance),
+     xlab = "Temperature °C",
+     ylab = "Invert Abundance/m2",
+     main = "Log Invert Abundance by Temperature")
+abline(IB_WT, col="red")
+
+
+#plot Fish_Biomass against Temperature#
+plot(x = log(Trutta_Database$Water_Temp),y = log(Trutta_Database$Fish_Abundance),
+     xlab = "Temperature °C",
+     ylab = "Fish Abundance/m2",
+     main = "Log Fish Abundance by Temperature")
+
+#plot Slope against Water_Temp#
+plot(x = Trutta_Database$Water_Temp,y = Trutta_Database$Slope,
+     xlab = "Temperature °C",
+     ylab = "Slope",
+     main = "Slope vs Temperature")
+abline(Model_Slope_Water_Temp, col="red")
+
+#plot Slope against Latitude#
+plot(x = Trutta_Database$Latitude,y = Trutta_Database$Slope,
+     xlab = "Latitude",
+     ylab = "Slope",
+     main = "Slope vs Latitude")
+
+#plot Water_Temp against Latitude#
+plot(x = Trutta_Database$Latitude,y = Trutta_Database$Water_Temp,
+     xlab = "Latitude",
+     ylab = "Temperature °C",
+     main = "Temperature vs Latitude")
+
+#plot Trutta_Biomass against Salar_Biomass#
+plot(x = Trutta_Database$Trutta_Biomass,y = Trutta_Database$Salar_Biomass,
+     xlab = "S. trutta biomass mg/m2",
+     ylab = "S. salar biomass mg/m2",
+     main = "S. trutta biomass by S. salar biomass")
+
+#plot Trutta_Abundance against Salar_Abundance#
+plot(x = log(Salar_Database$Trutta_Abund),y = log(Salar_Database$Salar_Abundance),
+     xlab = "Log S. trutta abundance/m2",
+     ylab = "Log S. salar abundance/m2",
+     main = "S. trutta abundance by S. salar abundance")
+
+#plot Trutta_Biomass against Salar_Biomass#
+plot(x = log(Salar_Database$Salar_Abundance),y = log(Trutta_Database$Trutta_Abund),
+     xlab = "Log S. Trutta Abundance/m2",
+     ylab = "Log S. Salar Abundance/m2",
+     main = "Log S. trutta by Log S. salar")
+
+#plot Invert_Biomass against Fish_Biomass#
+plot(x = log(Trutta_Database$Fish_Biomass),y = log(Trutta_Database$Invert_Biomass),
+     xlab = "Fish Biomass mg/m2",
+     ylab = "Invert Biomass mg/m2",
+     main = "Log Invert Biomass by Log Fish Biomass")
+
+#plot Invert_Biomass by Water_Temp#
+plot(x = log(Trutta_Database$Invert_Biomass),y = log(Trutta_Database$Water_Temp),
+     xlab = "Log Invert Biomass mg/m2",
+     ylab = "Temperature °C",
+     main = "Log Invert Biomass by Temperature")
+
+#plot Trutta_Biomass against Water_Temp#
+plot(x = log(Trutta_Database$Trutta_Biomass),y = log(Trutta_Database$Water_Temp),
+     xlab = "Log S. trutta Biomass mg/m2",
+     ylab = "Temperature °C",
+     main = "Log S. trutta Biomass by Temperature")
+
+#plot Fish_Biomass against Water_Temp#
+plot(x = log(Trutta_Database$Water_Temp),y = log(Trutta_Database$Fish_Biomass),
+     xlab = "Temperature °C",
+     ylab = "Log Fish Biomass mg/m2",
+     main = "Log Fish Biomass by Temperature")
+
+citation("ggplot2")
+
+-----------#Perform individual Regressions#-------------
+
+#Linear model Slope by Temperature#
+Model_Slope_Water_Temp = lm(Slope~Water_Temp, data = Trutta_Database)
+summary(Model_Slope_Water_Temp)
+
+#Linear model Slope by Latitude#
+Model_Slope_Latitude = lm(Slope~Latitude, data = Trutta_Database)
+summary(Model_Slope_Latitude)
+
+#Linear model Invert Biomass by Trutta_Biomass#
+IB_TB = lm(log(Invert_Biomass)~log(Trutta_Biomass), data = Trutta_Database)
+summary(IB_TB)
+
+#Linear model Invert Biomass by Trutta_Biomass#
+IA_TA = lm(log(Invert_Abundance)~log(Trutta_Abund), data = Trutta_Database)
+summary(IA_TA)
+
+#Linear model Invert Biomass by Fish_Biomass#
+IB_FB = lm(log(Invert_Biomass)~log(Fish_Biomass), data = Trutta_Database)
+summary(IB_FB)
+
+#Linear model Invert Abundance by Fish_Abundance#
+IA_FA = lm(log(Invert_Abundance)~log(Fish_Abundance), data = Trutta_Database)
+summary(IA_FA)
+
+#Linear model Invert Abundance by Water Temp#
+IB_WT = lm(log(Invert_Abundance)~log(Water_Temp), data = Trutta_Database)
+summary(IB_WT)
+
+#Linear model Trutta_Abundance by Water_Temp#
+lmSlope = lm(log(Trutta_Abund)~Water_Temp, data = Trutta_Database)
+summary(lmSlope)
+
+#Linear model Fish_Abundance by Water_Temp#
+lmSlope = lm(log(Fish_Abundance)~Water_Temp, data = Trutta_Database)
+summary(lmSlope)
+
+#Linear model Invert_Biomass by Latitude#
+lmSlope = lm(Invert_Biomass~Latitude, data = Trutta_Database)
+summary(lmSlope)
+
+#Linear model Trutta_Biomass by Latitude#
+lmSlope = lm(Trutta_Biomass~Latitude, data = Trutta_Database)
+summary(lmSlope)
+
+#Linear model Temperature by Latitude#
+lmSlope = lm(Latitude~Water_Temp, data = Trutta_Database)
+summary(lmSlope)
+
+#Linear model Trutta Biomass by Salar_Biomass#
+lmSlope = lm(log(Trutta_Biomass)~log(Salar_Biomass), data = Trutta_Database)
+summary(lmSlope)
+
+#Linear model Trutta Biomass by Salar_Biomass#
+lmSlope = lm(Trutta_Abund~Salar_Abundance, data = Salar_Database)
+summary(lmSlope)
+
+#Linear model Trutta Biomass by Salar_Biomass#
+lmSlope = lm(Slope~DF, data = Trutta_Database)
+summary(lmSlope)
+
+---------------------#Linear Models#------------------
+
+#Josh Guidance text
+Model<-lmer(slope~temp+latitude+competition+(1|Year), data=data)
+
+install.packages("lmer")
+
+library(lme4)
+library(LmerTest)
+
+#Mixed effects Model - Trutta_Abundance by Invert_Abundance, Water_Temp# WORKS
+Model_TA_IA<-lmer(log(Trutta_Abund)~log(Invert_Abundance)+Water_Temp+(1|Year), data=Trutta_Database)
+summary(Model_TA_IA)
+plot(Model_TB_IB)
+
+#Mixed effects Model - Fish_Abundance by Invert_Abundance, Water_Temp# WORKS
+Model_FA_IA<-lmer(log(Fish_Abundance)~log(Invert_Abundance)+Water_Temp+(1|Year), data=Trutta_Database)
+summary(Model_FA_IA)
+plot(Model_FB_IB)
+
+
+#Mixed effects Model - Slope by Water_Temp_Recorded, Salmonid Competition and Latitude# WORKS
+Model_WTemp_R<-lmer(Slope~Water_Temp+Latitude+(1|Year), data=Trutta_Database)
+plot(Model_WTemp_R)
+
+summary(Model_WTemp_R)
+anova(Model_WTemp_R)
+
+library(nlme)
+P_Model_WTemp <- lme(Slope~Water_Temp+Latitude+Salmonid_Species+(1|Year),data=Trutta_Database)
+anova(m1)
+
+#Mixed effects Model - Slope by Water_Temp_WEBB, Salmonid Competition and Latitude# WORKS
+Model_WTemp_WEBB<-lmer(Slope~Water_Temp_WEBB+Latitude+Salmonid_Species+(1|Year), data=Trutta_Database)
+plot(Model_WTemp_WEBB)
+
+summary(Model_WTemp_WEBB)
+
+#Mixed effects Model - Slope by Air_Temp, Salmonid Competition and Latitude# WORKS
+Model_ATemp<-lmer(Slope~Air_Temp+Latitude+Salmonid_Species+(1|Year), data=Trutta_Database)
+plot(Model_ATemp)
+
+summary(Model_ATemp)
+
+#Mixed effects Model - Slope by ALL_Temp, Salmonid Competition and Latitude# WORKS
+Model_All_temp<-lmer(Slope~Water_Temp+Air_Temp+Latitude+Salmonid_Species+(1|Year), data=Trutta_Database)
+plot(Model_All_temp)
+
+summary(Model_All_temp)
+
+#Mixed effects Model - Slope by ALL_Temp, Salmonid Competition and Latitude# WORKS
+Model_All_temp<-lmer(Slope~Water_Temp+Air_Temp+Latitude+Salmonid_Species+(1|Year), data=Trutta_Database)
+plot(Model_All_temp)
+
+summary(Model_All_temp)
+
+---------#3tl experimental#---------------
+
+#plot Trutta biomass against Invert Biomass#
+plot(x = Three_TL_Database$Slope,y = Three_TL_Database$Water_Temp,
+     xlab = "Slope",
+     ylab = "Temperature °C",
+     main = "Slope by Temperature")
+
+#Linear model Slope by Temperature#
+TTL_Model_Slope_Water_Temp = lm(Slope~Water_Temp, data = Three_TL_Database)
+summary(TTL_Model_Slope_Water_Temp)
+
+--------------#TEST CODE FOR P VALUES FROM Mixed effect Model# ----------------
+#Model to generate P values as well#
+
+data("Trutta_Database", package="lme4")
+WTR <- lmer(Slope ~ Water_Temp + Latitude + Salmonid_Species+(1 | Year), data=Trutta_Database)
+anova(WTR) # with p-values from F-tests using Satterthwaite's denominator df
+
+# Use the Kenward-Roger method
+if(requireNamespace("pbkrtest", quietly = TRUE))
+  anova(WTR, ddf="Kenward-Roger")
+
+
+
+#Mixed effects Model - Slope by Water_Temp_CALC_WEBB, Salmonid Competition and Latitude#
+Model_WTemp_C<-lmer(Slope~Water_Temp+Latitude+Salmonid_Species+(1|Year), data=Trutta_Database)
+
+
+
+
+plot(Model)
+
+summary(Model)
+
+#Mixed effects Model - Slope by Air_Temp, Salmonid Competition and Latitude#
+Model_ATemp<-lmer(Slope~Water_Temp+Latitude+Salmonid_Species+(1|Year), data=Trutta_Database)
+plot(Model)
+
+summary(Model)
+
